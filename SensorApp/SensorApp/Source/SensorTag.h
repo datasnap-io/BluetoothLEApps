@@ -48,9 +48,4 @@ typedef enum SensorType
 - (void) processCharacteristicDataWithServiceID:(CBUUID *) serviceUUID withCharacteristicID:(CBUUID *) characteristicUUID withData:(NSData *) inData;
 + (NSArray *) serviceUUIDsToMonitor;
 - (BOOL) hasBarometricPressureCalibrationData;		// The collection of pressure data should only be started after we have calibration data;
-
-@property (nonatomic, readonly, assign) double ambientTemperatureFromTMP006Sensor;
-@property (nonatomic, readonly, assign) double ambientTemperatureFromSHT21Sensor;
-@property (nonatomic, readonly, assign) double ambientTemperatureFromT5400Sensor;
-
 @end
