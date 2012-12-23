@@ -85,10 +85,18 @@
 {
 	DebugLog(@"didDisconnect: %@ %@", peripheral, error);
 	self.service = nil;
+
+	if (self.peripheral != nil && [[NSUserDefaults standardUserDefaults] boolForKey:kAutomaticalllyReconnect])
+	{
+		[[BluetoothLEManager sharedManager] connectPeripheral:self.peripheral];
+	}
+	else
+	{
+		[[BluetoothLEManager sharedManager] discoverDevices];
+	}
 	self.peripheral = nil;
 	[self.tableView reloadData];
 	[self setupConnectButton];
-	[[BluetoothLEManager sharedManager] discoverDevices];
 }
 
 - (void) didChangeState:(CBCentralManagerState) newState
@@ -148,6 +156,7 @@
 		if ([self.peripheral isConnected])
 		{
 			[[BluetoothLEManager sharedManager] disconnectPeripheral:self.peripheral];
+			self.peripheral = nil;
 		}
 		else
 		{
