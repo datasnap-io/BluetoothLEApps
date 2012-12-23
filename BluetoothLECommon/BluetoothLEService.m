@@ -60,6 +60,7 @@
 		return;
 	}
     
+	DebugLog(@"discover error: %@", error);
     if (error != nil)
 	{
 		return;

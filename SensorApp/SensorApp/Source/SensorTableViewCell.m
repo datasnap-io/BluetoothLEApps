@@ -37,7 +37,7 @@
 			}
 			else
 			{
-				value = @"%--º";
+				value = @"--º";
 			}
 			break;
 		}
@@ -58,7 +58,7 @@
 			}
 			else
 			{
-				value = @"%--º";
+				value = @"--º";
 			}
 			break;
 		}

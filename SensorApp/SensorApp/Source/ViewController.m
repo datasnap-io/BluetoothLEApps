@@ -19,7 +19,6 @@
 @property (nonatomic, assign) CBPeripheral *peripheral; // We only connect with 1 device at a time
 @property (nonatomic, strong) SensorTag *sensorTag;
 @property (nonatomic, strong) BluetoothLEService *service;
-@property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -28,8 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-	self.connectButton.enabled = NO;
 	[BluetoothLEManager sharedManagerWithDelegate:self];
 	[self.tableView registerNib:[UINib nibWithNibName:@"SensorTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SensorTableViewCell"];
 	self.tableView.rowHeight = 96;
@@ -43,6 +40,7 @@
 	[button addTarget:self action:@selector(settingsAction:) forControlEvents:UIControlEventTouchDown];
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+	[self setupConnectButton];
 }
 
 - (void) settingsAction:(id) sender
@@ -65,9 +63,8 @@
 		[[BluetoothLEManager sharedManager] stopScanning];
 		if (self.peripheral == nil)
 		{
-			[self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 			self.peripheral = peripheral;
-			self.connectButton.enabled = YES;
+			[self setupConnectButton];
 			[self.tableView reloadData];
 		}
 	}
@@ -77,8 +74,7 @@
 {
 	DebugLog(@"didConnectPeripheral: %@ - %@", peripheral, error);
 	self.peripheral = peripheral;
-	[self.connectButton setTitle:@"Disconnect" forState:UIControlStateNormal];
-	self.connectButton.enabled = YES;
+	[self setupConnectButton];
 	
 	self.service = [[BluetoothLEService alloc] initWithPeripheral:self.peripheral withServiceUUIDs:[SensorTag serviceUUIDsToMonitor]  delegate:self];
 	[self.service discoverServices];
@@ -91,16 +87,14 @@
 	self.service = nil;
 	self.peripheral = nil;
 	[self.tableView reloadData];
-	self.connectButton.enabled = NO;
-	[self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+	[self setupConnectButton];
 	[[BluetoothLEManager sharedManager] discoverDevices];
 }
 
 - (void) didChangeState:(CBCentralManagerState) newState
 {
 	DebugLog(@"state changed: %d", newState);
-	self.connectButton.enabled = NO;
-	[self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+
 	if (newState == CBCentralManagerStatePoweredOn)
 	{
 		if (self.peripheral == nil)
@@ -113,6 +107,8 @@
 		self.peripheral = nil;
 		[self.tableView reloadData];
 	}
+	
+	[self setupConnectButton];
 }
 
 - (void) didUpdateValue:(BluetoothLEService *) service forServiceUUID:(CBUUID *) serviceUUID withCharacteristicUUID:(CBUUID *) characteristicUUID withData:(NSData *) data
@@ -124,7 +120,6 @@
 	
 	[self.sensorTag processCharacteristicDataWithServiceID:serviceUUID withCharacteristicID:characteristicUUID withData:data];
 	//DebugLog(@"left down: %d right down: %d temperature: %f object temp: %f humidity: %0.1f%%rH pressure: %d mbar", self.sensorTag.leftButtonDown, self.sensorTag.rightButtonDown, (self.sensorTag.ambientTemperature * 1.8) + 32.0f, (self.sensorTag.objectTemperature * 1.8) + 32.0f, self.sensorTag.relativeHumidity, self.sensorTag.pressure);
-	//	self.temperatureLabel.text = [NSString stringWithFormat:@"%0.2fº", (self.sensorTag.ambientTemperature * 1.8) + 32.0f];
 
 	if ([self.sensorTag hasBarometricPressureCalibrationData] && self.sensorTag.pressure == 0)
 	{
@@ -159,6 +154,13 @@
 			[[BluetoothLEManager sharedManager] connectPeripheral:self.peripheral];
 		}
 	}
+}
+
+- (void) setupConnectButton
+{
+	UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:self.peripheral.isConnected ? NSLocalizedString(@"Disconnect", nil) : NSLocalizedString(@"Connect", nil) style:UIBarButtonItemStyleBordered  target:self action:@selector(connectAction:)];
+	self.navigationItem.leftBarButtonItem = item;
+	self.navigationItem.leftBarButtonItem.enabled = (self.peripheral != nil);
 }
 
 #pragma mark - Table View Methods
