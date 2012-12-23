@@ -18,9 +18,10 @@
 #define STRX(x)			x
 
 #define APP_VERSION_NUMBER				STRINGIFY(1.0.0)
-#define CF_BUNDLE_VERSION				STRINGIFY(2)
+#define CF_BUNDLE_VERSION				STRINGIFY(3)
 
 
 #endif
 
 #define kUseCelsiusTemperature			@"Celsius"
+#define kAutomaticalllyReconnect		@"Automatically Reconnect"
