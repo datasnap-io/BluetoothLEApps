@@ -229,7 +229,6 @@
 	if (![peripheral isConnected])
 	{
 		peripheral.delegate = self;
-			//[self.centralManager cancelPeripheralConnection:peripheral];
 		[self.centralManager connectPeripheral:peripheral options:nil];
 	}
 	else
