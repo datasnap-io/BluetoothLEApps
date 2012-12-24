@@ -14,6 +14,8 @@
 #import "BluetoothLEService+SensorTag.h"
 #import "SettingsViewController.h"
 #import "SetupAlarmViewController.h"
+#import "AlarmObject.h"
+#import "SensorTagAlarmAlert.h"
 
 
 @interface ViewController () <BluetoothLEManagerDelegateProtocol, BluetoothLEServiceProtocol, UITableViewDataSource, UITableViewDelegate>
@@ -21,6 +23,7 @@
 @property (nonatomic, strong) SensorTag *sensorTag;
 @property (nonatomic, strong) BluetoothLEService *service;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *alarms;
 @end
 
 @implementation ViewController
@@ -32,6 +35,7 @@
 	[self.tableView registerNib:[UINib nibWithNibName:@"SensorTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SensorTableViewCell"];
 	self.tableView.rowHeight = 96;
 	[self.tableView reloadData];
+	[self loadAlarms];
 	
 	self.title = NSLocalizedString(@"SensorApp", nil);
 	
@@ -136,6 +140,44 @@
 		[service startMonitoringBarometerSensor];
 	}
 	
+	// Handle the alarms
+	if (self.sensorTag.hasAmbientTemperature)
+	{
+		AlarmObject *object = [self alarmForSensorType:kSensorAmbientTemperatureType];
+		double temp = self.sensorTag.ambientTemperature;
+		if (![[NSUserDefaults standardUserDefaults] boolForKey:kUseCelsiusTemperature])
+		{
+			temp = temp * 1.8 + 32.0f;
+		}
+
+		[object setCount:(NSUInteger) temp];
+	}
+
+	if (self.sensorTag.hasObjectTemperature)
+	{
+		AlarmObject *object = [self alarmForSensorType:kSensorObjectTemperatureType];
+		double temp = self.sensorTag.objectTemperature;
+		if (![[NSUserDefaults standardUserDefaults] boolForKey:kUseCelsiusTemperature])
+		{
+			temp = temp * 1.8 + 32.0f;
+		}
+		
+		[object setCount:(NSUInteger) temp];
+	}
+	
+	if (self.sensorTag.hasRelativeHumidity)
+	{
+		AlarmObject *object = [self alarmForSensorType:kSensorHumidityType];
+		[object setCount:self.sensorTag.relativeHumidity];
+	}
+
+	if (self.sensorTag.hasPressure)
+	{
+		AlarmObject *object = [self alarmForSensorType:kSensorPressureType];
+		[object setCount:self.sensorTag.pressure];
+	}
+
+	[self checkAlarms];
 	[self.tableView reloadData];
 }
 
@@ -147,8 +189,6 @@
 	[service readBarometerSensorCalibration];
 	DebugLog(@"finished discovering: %@", service);
 }
-
-
 
 - (IBAction)connectAction:(id)sender
 {
@@ -192,6 +232,7 @@
 	SensorTableViewCell *cell = (SensorTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"SensorTableViewCell"];
 	cell.sensorTag = self.sensorTag;
 	cell.cellType = indexPath.row;
+	cell.hasAlarm = [self alarmForSensorType:cell.cellType].alarmOn;
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	[cell setupCell];
 	
@@ -209,13 +250,102 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+	[self saveAlarms];
+}
+
+#pragma mark - Alarms
+
 - (void) didTapSetAlarmCell:(SensorTableViewCell *) cell
 {
 	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 	
 	SetupAlarmViewController *vc = [[SetupAlarmViewController alloc] init];
 	vc.sensorType = indexPath.row;
+	vc.alarm = [self alarmForSensorType:vc.sensorType];
 	[self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void) loadAlarms
+{
+	NSData *alarmData = [[NSUserDefaults standardUserDefaults] objectForKey:kAlarms];
+	if (alarmData != nil)
+	{
+		self.alarms = [NSKeyedUnarchiver unarchiveObjectWithData:alarmData];
+	}
+}
+
+- (void) saveAlarms
+{
+	if (self.alarms)
+	{
+		// Reset all the alarms
+		for (AlarmObject *object in self.alarms)
+		{
+			[object clearValueCount];
+		}
+		
+		NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.alarms];
+		if (data)
+		{
+			[[NSUserDefaults standardUserDefaults] setObject:data forKey:kAlarms];
+		}
+		else
+		{
+			[[NSUserDefaults standardUserDefaults] removeObjectForKey:kAlarms];
+		}
+	}
+	
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (AlarmObject *) alarmForSensorType:(SensorType) type
+{
+	for (AlarmObject *object in self.alarms)
+	{
+		if (object.sensorType == type)
+		{
+			return object;
+		}
+	}
+	
+	AlarmObject *object = [[AlarmObject alloc] init];
+	object.sensorType = type;
+	if (self.alarms == nil)
+	{
+		self.alarms = [NSArray arrayWithObject:object];
+	}
+	else
+	{
+		NSMutableArray *newArray = [self.alarms mutableCopy];
+		[newArray addObject:object];
+		self.alarms = newArray;
+	}
+	
+	return object;
+}
+
+- (void) checkAlarms
+{
+	for (AlarmObject *object in self.alarms)
+	{
+		if ([object highValueAlarm])
+		{
+			SensorTagAlarmAlert *alert = [[SensorTagAlarmAlert alloc] init];
+			alert.sensorType = object.sensorType;
+			alert.alarmValue = object.maxValue;
+			[alert presentAlarmAlert];
+		}
+		else if ([object lowValueAlarm])
+		{
+			SensorTagAlarmAlert *alert = [[SensorTagAlarmAlert alloc] init];
+			alert.sensorType = object.sensorType;
+			alert.below = YES;
+			alert.alarmValue = object.minValue;
+			[alert presentAlarmAlert];
+		}
+	}
 }
 
 @end

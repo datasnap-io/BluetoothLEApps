@@ -17,7 +17,7 @@
 @implementation SensorTableViewCell
 - (void) setupCell
 {
-	self.hasAlarmImageView.hidden = YES;
+	self.hasAlarmImageView.hidden = !self.hasAlarm;
 	NSString *label = nil;
 	NSString *value = nil;
 	switch (self.cellType)

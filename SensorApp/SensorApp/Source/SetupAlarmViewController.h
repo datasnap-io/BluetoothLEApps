@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SensorTag.h"
 
+@class AlarmObject;
 
 @interface SetupAlarmViewController : UIViewController
 @property (nonatomic, assign) SensorType sensorType;
+@property (nonatomic, strong) AlarmObject *alarm;
 @end

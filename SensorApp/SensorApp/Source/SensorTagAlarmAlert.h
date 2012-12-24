@@ -10,8 +10,9 @@
 #import "SensorTag.h"
 
 @interface SensorTagAlarmAlert : NSObject
-@property (nonatomic, assign) SensorType *sensorType;
+@property (nonatomic, assign) SensorType sensorType;
 @property (nonatomic, assign) BOOL below; // If false, it is above
-@property (nonatomic, assign) double alarmValue;
+@property (nonatomic, assign) NSUInteger alarmValue;
 @property (nonatomic, assign) double currentValue;
+- (void) presentAlarmAlert;
 @end

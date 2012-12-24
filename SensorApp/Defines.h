@@ -18,10 +18,14 @@
 #define STRX(x)			x
 
 #define APP_VERSION_NUMBER				STRINGIFY(1.0.0)
-#define CF_BUNDLE_VERSION				STRINGIFY(3)
+#define CF_BUNDLE_VERSION				STRINGIFY(4)
 
 
 #endif
 
 #define kUseCelsiusTemperature			@"Celsius"
 #define kAutomaticalllyReconnect		@"Automatically Reconnect"
+#define kAlarms							@"Alarms"
+
+#define kNumberOfReadsForAlarm			10
+#define kTimeIntervalBetweenAlarms		(60 * 5) // 5 minutes between alarms

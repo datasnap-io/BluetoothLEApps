@@ -11,8 +11,66 @@
 @implementation SensorTagAlarmAlert
 - (void) presentAlarmAlert
 {
-	UILocalNotification *notification = [[UILocalNotification alloc] init];
-	[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-	//if ([[UIApplication sharedApplication].isAct])
+	NSString *sensorString = nil;
+	NSString *sensorUnitsString = nil;
+	switch (self.sensorType)
+	{
+		case kSensorAmbientTemperatureType:
+		{
+			sensorString = NSLocalizedString(@"Ambient temperature", nil);
+			if (![[NSUserDefaults standardUserDefaults] boolForKey:kUseCelsiusTemperature])
+			{
+				sensorUnitsString = @"ºF";
+			}
+			else
+			{
+				sensorUnitsString = @"ºC";
+			}
+			break;
+		}
+			
+		case kSensorObjectTemperatureType:
+		{
+			sensorString = NSLocalizedString(@"Object temperature", nil);
+			if (![[NSUserDefaults standardUserDefaults] boolForKey:kUseCelsiusTemperature])
+			{
+				sensorUnitsString = @"ºF";
+			}
+			else
+			{
+				sensorUnitsString = @"ºC";
+			}
+			break;
+		}
+			
+		case kSensorHumidityType:
+		{
+			sensorString = NSLocalizedString(@"Relative humidity", nil);
+			sensorUnitsString= @"% rH";
+			break;
+		}
+			
+		case kSensorPressureType:
+		{
+			sensorString = NSLocalizedString(@"Pressure", nil);
+			sensorUnitsString = @" mbar";
+			break;
+		}
+	}
+	
+	NSString *alertMessage = [NSString stringWithFormat:@"%@ is %@ %d%@", sensorString, self.below ? NSLocalizedString(@"below", nil) : NSLocalizedString(@"above", nil), self.alarmValue, sensorUnitsString];
+
+	if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+	{
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sensor Alarm", nil) message:alertMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+		[alert show];
+	}
+	else
+	{
+		UILocalNotification *notification = [[UILocalNotification alloc] init];
+		notification.alertBody = alertMessage;
+		notification.soundName = UILocalNotificationDefaultSoundName;
+		[[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+	}
 }
 @end

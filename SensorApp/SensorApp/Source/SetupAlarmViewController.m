@@ -9,6 +9,7 @@
 #import "SetupAlarmViewController.h"
 #import "TableSection.h"
 #import "TableRow.h"
+#import "AlarmObject.h"
 
 @interface SetupAlarmViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +30,9 @@
 	
 	self.maxStepper = [[UIStepper alloc] init];
 	self.minStepper = [[UIStepper alloc] init];
+	self.onOffSwitch.on = self.alarm.alarmOn;
+	self.minStepper.value = self.alarm.minValue;
+	self.maxStepper.value = self.alarm.maxValue;
 	
 	[self.minStepper addTarget:self action:@selector(minStepperChanged:) forControlEvents:UIControlEventValueChanged];
 	[self.maxStepper addTarget:self action:@selector(maxStepperChanged:) forControlEvents:UIControlEventValueChanged];
@@ -79,10 +83,16 @@
 	[self setupTable];
 }
 
+- (void) updateValues
+{
+	self.alarm.alarmOn = self.onOffSwitch.on;
+	self.alarm.maxValue = self.maxStepper.value;
+	self.alarm.minValue = self.minStepper.value;
+}
+
 - (void) setupTable
 {
-	self.minStepper.enabled = self.onOffSwitch.on;
-	self.maxStepper.enabled = self.onOffSwitch.on;
+	[self updateValues];
 	
 	NSMutableArray *sections = [NSMutableArray array];
 	TableSection *section = [[TableSection alloc] init];
@@ -149,19 +159,16 @@
 
 - (void) toggleOnOff:(id) sender
 {
-	NSLog(@"toggle");
 	[self setupTable];
 }
 
 - (void) minStepperChanged:(id) sender
 {
-	NSLog(@"min stepper");
 	[self setupTable];
 }
 
 - (void) maxStepperChanged:(id) sender
 {
-	NSLog(@"max stepper");
 	[self setupTable];
 }
 
