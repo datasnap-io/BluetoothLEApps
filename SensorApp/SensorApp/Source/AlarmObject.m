@@ -52,8 +52,7 @@
 		// when the sensor hasn't settled down
 		else
 		{
-			self.numAbove = 0;
-			self.numBelow = 0;
+			[self clearValueCount];
 		}
 	}
 }
@@ -62,6 +61,7 @@
 {
 	self.numAbove = 0;
 	self.numBelow = 0;
+	self.lastAlarmDate = nil;
 }
 
 - (BOOL) lowValueAlarm
