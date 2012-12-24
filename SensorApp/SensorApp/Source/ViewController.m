@@ -13,6 +13,7 @@
 #import "BluetoothLEService.h"
 #import "BluetoothLEService+SensorTag.h"
 #import "SettingsViewController.h"
+#import "SetupAlarmViewController.h"
 
 
 @interface ViewController () <BluetoothLEManagerDelegateProtocol, BluetoothLEServiceProtocol, UITableViewDataSource, UITableViewDelegate>
@@ -194,12 +195,27 @@
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	[cell setupCell];
 	
+	__weak ViewController *weakSelf = self;
+	cell.alarmBlock = ^(SensorTableViewCell * cell)
+	{
+		[weakSelf didTapSetAlarmCell:cell];
+	};
+	
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void) didTapSetAlarmCell:(SensorTableViewCell *) cell
+{
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+	
+	SetupAlarmViewController *vc = [[SetupAlarmViewController alloc] init];
+	vc.sensorType = indexPath.row;
+	[self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		D205367F16877AA800D36379 /* TableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = D205367E16877AA800D36379 /* TableRow.m */; };
 		D205368316877AF100D36379 /* TableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D205368216877AF100D36379 /* TableSection.m */; };
+		D205368A1688CBDE00D36379 /* addalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = D20536881688CBDE00D36379 /* addalarm.png */; };
+		D205368B1688CBDE00D36379 /* addalarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20536891688CBDE00D36379 /* addalarm@2x.png */; };
+		D205368E1688CCF100D36379 /* alarm.png in Resources */ = {isa = PBXBuildFile; fileRef = D205368C1688CCF100D36379 /* alarm.png */; };
+		D205368F1688CCF100D36379 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D205368D1688CCF100D36379 /* alarm@2x.png */; };
+		D20536931688CFFE00D36379 /* SetupAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20536911688CFFE00D36379 /* SetupAlarmViewController.m */; };
+		D20536961688D01300D36379 /* SetupAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20536951688D01300D36379 /* SetupAlarmViewController.xib */; };
 		D20A271A167C1FA60033CB87 /* BluetoothLEService+SensorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D20A2719167C1FA60033CB87 /* BluetoothLEService+SensorTag.m */; };
 		D23932181684082100932976 /* BluetoothLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D23932151684082100932976 /* BluetoothLEManager.m */; };
 		D23932191684082100932976 /* BluetoothLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = D23932171684082100932976 /* BluetoothLEService.m */; };
@@ -40,6 +46,13 @@
 		D205367E16877AA800D36379 /* TableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableRow.m; path = Source/TableRow.m; sourceTree = "<group>"; };
 		D205368116877AF100D36379 /* TableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSection.h; path = Source/TableSection.h; sourceTree = "<group>"; };
 		D205368216877AF100D36379 /* TableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableSection.m; path = Source/TableSection.m; sourceTree = "<group>"; };
+		D20536881688CBDE00D36379 /* addalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addalarm.png; sourceTree = "<group>"; };
+		D20536891688CBDE00D36379 /* addalarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addalarm@2x.png"; sourceTree = "<group>"; };
+		D205368C1688CCF100D36379 /* alarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm.png; sourceTree = "<group>"; };
+		D205368D1688CCF100D36379 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
+		D20536901688CFFE00D36379 /* SetupAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetupAlarmViewController.h; path = Source/SetupAlarmViewController.h; sourceTree = "<group>"; };
+		D20536911688CFFE00D36379 /* SetupAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetupAlarmViewController.m; path = Source/SetupAlarmViewController.m; sourceTree = "<group>"; };
+		D20536951688D01300D36379 /* SetupAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupAlarmViewController.xib; sourceTree = "<group>"; };
 		D20A2718167C1FA60033CB87 /* BluetoothLEService+SensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BluetoothLEService+SensorTag.h"; path = "Source/BluetoothLEService+SensorTag.h"; sourceTree = "<group>"; };
 		D20A2719167C1FA60033CB87 /* BluetoothLEService+SensorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BluetoothLEService+SensorTag.m"; path = "Source/BluetoothLEService+SensorTag.m"; sourceTree = "<group>"; };
 		D23932141684082100932976 /* BluetoothLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothLEManager.h; sourceTree = "<group>"; };
@@ -95,6 +108,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20536971688D42400D36379 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAA46216797B2A000E8A0B /* ViewController.h */,
+				D2AAA46316797B2A000E8A0B /* ViewController.m */,
+				D20536901688CFFE00D36379 /* SetupAlarmViewController.h */,
+				D20536911688CFFE00D36379 /* SetupAlarmViewController.m */,
+				D25E483E1682C795002C65AF /* SettingsViewController.h */,
+				D25E483F1682C795002C65AF /* SettingsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D23932131684082100932976 /* BluetoothLECommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,18 +170,15 @@
 			children = (
 				D2AAA45F16797B2A000E8A0B /* AppDelegate.h */,
 				D2AAA46016797B2A000E8A0B /* AppDelegate.m */,
-				D2AAA46216797B2A000E8A0B /* ViewController.h */,
-				D2AAA46316797B2A000E8A0B /* ViewController.m */,
+				D20536971688D42400D36379 /* ViewControllers */,
 				D20A2718167C1FA60033CB87 /* BluetoothLEService+SensorTag.h */,
 				D20A2719167C1FA60033CB87 /* BluetoothLEService+SensorTag.m */,
 				D289D692167E398C00D4A0FD /* SensorTag.h */,
 				D289D693167E398C00D4A0FD /* SensorTag.m */,
-				D25E48331682BEFF002C65AF /* SensorTableViewCell.h */,
-				D25E48341682BEFF002C65AF /* SensorTableViewCell.m */,
-				D25E483E1682C795002C65AF /* SettingsViewController.h */,
-				D25E483F1682C795002C65AF /* SettingsViewController.m */,
 				D25E484A1682D40A002C65AF /* SensorTagAlarmAlert.h */,
 				D25E484B1682D40A002C65AF /* SensorTagAlarmAlert.m */,
+				D25E48331682BEFF002C65AF /* SensorTableViewCell.h */,
+				D25E48341682BEFF002C65AF /* SensorTableViewCell.m */,
 				D205367D16877AA800D36379 /* TableRow.h */,
 				D205367E16877AA800D36379 /* TableRow.m */,
 				D205368116877AF100D36379 /* TableSection.h */,
@@ -182,9 +205,14 @@
 				D2AAA46A16797B42000E8A0B /* Default@2x.png */,
 				D239321A16840B1600932976 /* gear.png */,
 				D239321B16840B1600932976 /* gear@2x.png */,
+				D20536881688CBDE00D36379 /* addalarm.png */,
+				D20536891688CBDE00D36379 /* addalarm@2x.png */,
+				D205368C1688CCF100D36379 /* alarm.png */,
+				D205368D1688CCF100D36379 /* alarm@2x.png */,
 				D2AAA46B16797B42000E8A0B /* InfoPlist.strings */,
 				D25E482E1682BEBB002C65AF /* ViewController.xib */,
 				D25E48431682C7B0002C65AF /* SettingsViewController.xib */,
+				D20536951688D01300D36379 /* SetupAlarmViewController.xib */,
 				D25E48311682BEE4002C65AF /* SensorTableViewCell.xib */,
 				D2AAA46F16797B42000E8A0B /* SensorApp-Info.plist */,
 			);
@@ -252,6 +280,11 @@
 				D25E48441682C7B0002C65AF /* SettingsViewController.xib in Resources */,
 				D239321C16840B1600932976 /* gear.png in Resources */,
 				D239321D16840B1600932976 /* gear@2x.png in Resources */,
+				D205368A1688CBDE00D36379 /* addalarm.png in Resources */,
+				D205368B1688CBDE00D36379 /* addalarm@2x.png in Resources */,
+				D205368E1688CCF100D36379 /* alarm.png in Resources */,
+				D205368F1688CCF100D36379 /* alarm@2x.png in Resources */,
+				D20536961688D01300D36379 /* SetupAlarmViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +307,7 @@
 				D23932191684082100932976 /* BluetoothLEService.m in Sources */,
 				D205367F16877AA800D36379 /* TableRow.m in Sources */,
 				D205368316877AF100D36379 /* TableSection.m in Sources */,
+				D20536931688CFFE00D36379 /* SetupAlarmViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

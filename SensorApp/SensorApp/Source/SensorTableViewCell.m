@@ -11,12 +11,13 @@
 @interface SensorTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *mainValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sensorTypeLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *hasAlarmImageView;
 @end
 
 @implementation SensorTableViewCell
 - (void) setupCell
 {
+	self.hasAlarmImageView.hidden = YES;
 	NSString *label = nil;
 	NSString *value = nil;
 	switch (self.cellType)
@@ -94,5 +95,13 @@
 	
 	self.sensorTypeLabel.text = label;
 	self.mainValueLabel.text = value;
+}
+
+- (IBAction)setupAlarmAction:(id)sender
+{
+	if (self.alarmBlock)
+	{
+		self.alarmBlock(self);
+	}
 }
 @end

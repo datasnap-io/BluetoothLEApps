@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SensorTag.h"
 
+@class SensorTableViewCell;
+
+typedef void(^TapSetAlarmBlock)(SensorTableViewCell *cell);
+
 @interface SensorTableViewCell : UITableViewCell
 @property (nonatomic, strong) SensorTag *sensorTag;
 @property (nonatomic, assign) SensorType cellType;
+@property (nonatomic, copy)  TapSetAlarmBlock alarmBlock;
 - (void) setupCell;
 @end

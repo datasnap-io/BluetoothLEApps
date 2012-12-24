@@ -106,10 +106,10 @@
 	TableSection *tableSection = [self.sections objectAtIndex:indexPath.section];
 	TableRow *tableRow = [tableSection.rows objectAtIndex:indexPath.row];
 
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"versionCell"];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingsCell"];
 	if (cell == nil)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"versionCell"];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"settingsCell"];
 	}
 
 	cell.textLabel.text = tableRow.title;
