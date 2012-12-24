@@ -35,15 +35,15 @@
 	return self;
 }
 
-- (void) setCount:(NSUInteger) value
+- (void) updateAlarmValue:(double) value
 {
 	if (self.alarmOn)
 	{
-		if (value < self.minValue)
+		if (ceilf(value) <= self.minValue)
 		{
 			self.numBelow++;
 		}
-		else if (value > self.maxValue)
+		else if (floorf(value) >= self.maxValue)
 		{
 			self.numAbove++;
 		}

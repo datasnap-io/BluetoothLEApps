@@ -150,7 +150,7 @@
 			temp = temp * 1.8 + 32.0f;
 		}
 
-		[object setCount:(NSUInteger) temp];
+		[object updateAlarmValue:temp];
 	}
 
 	if (self.sensorTag.hasObjectTemperature)
@@ -162,19 +162,19 @@
 			temp = temp * 1.8 + 32.0f;
 		}
 		
-		[object setCount:(NSUInteger) temp];
+		[object updateAlarmValue:temp];
 	}
 	
 	if (self.sensorTag.hasRelativeHumidity)
 	{
 		AlarmObject *object = [self alarmForSensorType:kSensorHumidityType];
-		[object setCount:self.sensorTag.relativeHumidity];
+		[object updateAlarmValue:self.sensorTag.relativeHumidity];
 	}
 
 	if (self.sensorTag.hasPressure)
 	{
 		AlarmObject *object = [self alarmForSensorType:kSensorPressureType];
-		[object setCount:self.sensorTag.pressure];
+		[object updateAlarmValue:self.sensorTag.pressure];
 	}
 
 	[self checkAlarms];

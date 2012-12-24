@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSDate *lastAlarmDate;
 
 - (void) clearValueCount;
-- (void) setCount:(NSUInteger) value;
+- (void) updateAlarmValue:(double) value;
 - (BOOL) lowValueAlarm;
 - (BOOL) highValueAlarm;
 @end
