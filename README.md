@@ -7,7 +7,7 @@ Included is some common BluetoothLE code to make it easier to scan and discover 
 
 License
 ===========
-All work here is released under the MIT License
+All work here is released under the MIT License. However, if you incorporate this into an app or use it with some Bluetooth LE hardware, I wouldn't mind if you sent me a copy of the software or sent me some hardware. (This isn't mandatory, but I would appreciate it.)
 
 ©2012 Scott Gruby
 
