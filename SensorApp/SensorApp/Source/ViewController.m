@@ -348,4 +348,19 @@
 	}
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+	if (self.peripheral == nil)
+	{
+		[[BluetoothLEManager sharedManager] stopScanning];
+	}
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+	if (self.peripheral == nil)
+	{
+		[[BluetoothLEManager sharedManager] discoverDevices];
+	}
+}
 @end
