@@ -174,7 +174,6 @@
 // Callback from retrievePeripherals
 - (void) centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals
 {
-
 	for (CBPeripheral *peripheral in peripherals)
 	{
 		if (![self.foundPeripherals containsObject:peripheral])

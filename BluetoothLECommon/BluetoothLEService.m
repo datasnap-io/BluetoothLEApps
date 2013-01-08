@@ -60,7 +60,7 @@
 		return;
 	}
     
-	DebugLog(@"discover error: %@", error);
+	//	DebugLog(@"discover error: %@", error);
     if (error != nil)
 	{
 		return;
@@ -87,7 +87,8 @@
 		return;
 	}
     
-	DebugLog(@"disocvered: %@", service.UUID);
+	
+	//DebugLog(@"discovered: %@", service.UUID);
 	self.remainingServicesToDiscover--;
 
 	if (self.remainingServicesToDiscover == 0)
