@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D20DDF95169BACE7003AD170 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DDF94169BACE7003AD170 /* UIKit.framework */; };
+		D20DDF97169BACE7003AD170 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DDF96169BACE7003AD170 /* Foundation.framework */; };
+		D20DDF99169BACE7003AD170 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DDF98169BACE7003AD170 /* CoreGraphics.framework */; };
+		D20DDFA1169BACE7003AD170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D20DDFA0169BACE7003AD170 /* main.m */; };
+		D20DDFBC169BAD3B003AD170 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D20DDFB9169BAD3B003AD170 /* AppDelegate.m */; };
+		D20DDFBD169BAD3B003AD170 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D20DDFBB169BAD3B003AD170 /* ViewController.m */; };
+		D20DDFC7169BAD43003AD170 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20DDFBF169BAD43003AD170 /* Default-568h@2x.png */; };
+		D20DDFC8169BAD43003AD170 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D20DDFC0169BAD43003AD170 /* Default.png */; };
+		D20DDFC9169BAD43003AD170 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20DDFC1169BAD43003AD170 /* Default@2x.png */; };
+		D20DDFCA169BAD43003AD170 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D20DDFC2169BAD43003AD170 /* InfoPlist.strings */; };
+		D20DDFCB169BAD43003AD170 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D20DDFC4169BAD43003AD170 /* ViewController.xib */; };
+		D20DDFD2169BAD7F003AD170 /* BluetoothLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D20DDFCF169BAD7F003AD170 /* BluetoothLEManager.m */; };
+		D20DDFD3169BAD7F003AD170 /* BluetoothLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = D20DDFD1169BAD7F003AD170 /* BluetoothLEService.m */; };
+		D20DDFD5169BAD8C003AD170 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D20DDFD4169BAD8C003AD170 /* CoreBluetooth.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D20DDF90169BACE7003AD170 /* HeartRateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20DDF94169BACE7003AD170 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D20DDF96169BACE7003AD170 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D20DDF98169BACE7003AD170 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D20DDFA0169BACE7003AD170 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D20DDFA2169BACE7003AD170 /* HeartRateApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartRateApp-Prefix.pch"; sourceTree = "<group>"; };
+		D20DDFB8169BAD3B003AD170 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D20DDFB9169BAD3B003AD170 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D20DDFBA169BAD3B003AD170 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D20DDFBB169BAD3B003AD170 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D20DDFBF169BAD43003AD170 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D20DDFC0169BAD43003AD170 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D20DDFC1169BAD43003AD170 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D20DDFC3169BAD43003AD170 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D20DDFC5169BAD43003AD170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		D20DDFC6169BAD43003AD170 /* HeartRateApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HeartRateApp-Info.plist"; sourceTree = "<group>"; };
+		D20DDFCE169BAD7F003AD170 /* BluetoothLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothLEManager.h; sourceTree = "<group>"; };
+		D20DDFCF169BAD7F003AD170 /* BluetoothLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothLEManager.m; sourceTree = "<group>"; };
+		D20DDFD0169BAD7F003AD170 /* BluetoothLEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothLEService.h; sourceTree = "<group>"; };
+		D20DDFD1169BAD7F003AD170 /* BluetoothLEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothLEService.m; sourceTree = "<group>"; };
+		D20DDFD4169BAD8C003AD170 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D20DDFDA169BADBC003AD170 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D20DDF8D169BACE7003AD170 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D20DDFD5169BAD8C003AD170 /* CoreBluetooth.framework in Frameworks */,
+				D20DDF95169BACE7003AD170 /* UIKit.framework in Frameworks */,
+				D20DDF97169BACE7003AD170 /* Foundation.framework in Frameworks */,
+				D20DDF99169BACE7003AD170 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D20DDF85169BACE7003AD170 = {
+			isa = PBXGroup;
+			children = (
+				D20DDFDA169BADBC003AD170 /* Defines.h */,
+				D20DDF9A169BACE7003AD170 /* HeartRateApp */,
+				D20DDF93169BACE7003AD170 /* Frameworks */,
+				D20DDF91169BACE7003AD170 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D20DDF91169BACE7003AD170 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDF90169BACE7003AD170 /* HeartRateApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D20DDF93169BACE7003AD170 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFD4169BAD8C003AD170 /* CoreBluetooth.framework */,
+				D20DDF94169BACE7003AD170 /* UIKit.framework */,
+				D20DDF96169BACE7003AD170 /* Foundation.framework */,
+				D20DDF98169BACE7003AD170 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D20DDF9A169BACE7003AD170 /* HeartRateApp */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFCD169BAD7F003AD170 /* BluetoothLECommon */,
+				D20DDFB7169BAD3B003AD170 /* Source */,
+				D20DDFBE169BAD43003AD170 /* Resources */,
+				D20DDF9B169BACE7003AD170 /* Supporting Files */,
+			);
+			path = HeartRateApp;
+			sourceTree = "<group>";
+		};
+		D20DDF9B169BACE7003AD170 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFA0169BACE7003AD170 /* main.m */,
+				D20DDFA2169BACE7003AD170 /* HeartRateApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D20DDFB7169BAD3B003AD170 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFB8169BAD3B003AD170 /* AppDelegate.h */,
+				D20DDFB9169BAD3B003AD170 /* AppDelegate.m */,
+				D20DDFBA169BAD3B003AD170 /* ViewController.h */,
+				D20DDFBB169BAD3B003AD170 /* ViewController.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D20DDFBE169BAD43003AD170 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFBF169BAD43003AD170 /* Default-568h@2x.png */,
+				D20DDFC0169BAD43003AD170 /* Default.png */,
+				D20DDFC1169BAD43003AD170 /* Default@2x.png */,
+				D20DDFC2169BAD43003AD170 /* InfoPlist.strings */,
+				D20DDFC4169BAD43003AD170 /* ViewController.xib */,
+				D20DDFC6169BAD43003AD170 /* HeartRateApp-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D20DDFCD169BAD7F003AD170 /* BluetoothLECommon */ = {
+			isa = PBXGroup;
+			children = (
+				D20DDFCE169BAD7F003AD170 /* BluetoothLEManager.h */,
+				D20DDFCF169BAD7F003AD170 /* BluetoothLEManager.m */,
+				D20DDFD0169BAD7F003AD170 /* BluetoothLEService.h */,
+				D20DDFD1169BAD7F003AD170 /* BluetoothLEService.m */,
+			);
+			name = BluetoothLECommon;
+			path = ../../BluetoothLECommon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D20DDF8F169BACE7003AD170 /* HeartRateApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D20DDFB4169BACE7003AD170 /* Build configuration list for PBXNativeTarget "HeartRateApp" */;
+			buildPhases = (
+				D20DDF8C169BACE7003AD170 /* Sources */,
+				D20DDF8D169BACE7003AD170 /* Frameworks */,
+				D20DDF8E169BACE7003AD170 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeartRateApp;
+			productName = HeartRateApp;
+			productReference = D20DDF90169BACE7003AD170 /* HeartRateApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D20DDF87169BACE7003AD170 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Scott Gruby";
+			};
+			buildConfigurationList = D20DDF8A169BACE7003AD170 /* Build configuration list for PBXProject "HeartRateApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D20DDF85169BACE7003AD170;
+			productRefGroup = D20DDF91169BACE7003AD170 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D20DDF8F169BACE7003AD170 /* HeartRateApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D20DDF8E169BACE7003AD170 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D20DDFC7169BAD43003AD170 /* Default-568h@2x.png in Resources */,
+				D20DDFC8169BAD43003AD170 /* Default.png in Resources */,
+				D20DDFC9169BAD43003AD170 /* Default@2x.png in Resources */,
+				D20DDFCA169BAD43003AD170 /* InfoPlist.strings in Resources */,
+				D20DDFCB169BAD43003AD170 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D20DDF8C169BACE7003AD170 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D20DDFA1169BACE7003AD170 /* main.m in Sources */,
+				D20DDFBC169BAD3B003AD170 /* AppDelegate.m in Sources */,
+				D20DDFBD169BAD3B003AD170 /* ViewController.m in Sources */,
+				D20DDFD2169BAD7F003AD170 /* BluetoothLEManager.m in Sources */,
+				D20DDFD3169BAD7F003AD170 /* BluetoothLEService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D20DDFC2169BAD43003AD170 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D20DDFC3169BAD43003AD170 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D20DDFC4169BAD43003AD170 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D20DDFC5169BAD43003AD170 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D20DDFB2169BACE7003AD170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D20DDFB3169BACE7003AD170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D20DDFB5169BACE7003AD170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeartRateApp/HeartRateApp-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/HeartRateApp/Resources/HeartRateApp-Info.plist";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
+				INFOPLIST_PREFIX_HEADER = Defines.h;
+				INFOPLIST_PREPROCESS = YES;
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "INFO_PLIST=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D20DDFB6169BACE7003AD170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HeartRateApp/HeartRateApp-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/HeartRateApp/Resources/HeartRateApp-Info.plist";
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
+				INFOPLIST_PREFIX_HEADER = Defines.h;
+				INFOPLIST_PREPROCESS = YES;
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "INFO_PLIST=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D20DDF8A169BACE7003AD170 /* Build configuration list for PBXProject "HeartRateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D20DDFB2169BACE7003AD170 /* Debug */,
+				D20DDFB3169BACE7003AD170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D20DDFB4169BACE7003AD170 /* Build configuration list for PBXNativeTarget "HeartRateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D20DDFB5169BACE7003AD170 /* Debug */,
+				D20DDFB6169BACE7003AD170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D20DDF87169BACE7003AD170 /* Project object */;
+}
