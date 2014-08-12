@@ -106,7 +106,7 @@
 
 - (void) didChangeState:(CBCentralManagerState) newState
 {
-	DebugLog(@"state changed: %ld", newState);
+	DebugLog(@"state changed: %ld", (unsigned long) newState);
 
 	if (newState == CBCentralManagerStatePoweredOn)
 	{
