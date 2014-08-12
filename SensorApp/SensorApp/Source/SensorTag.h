@@ -13,18 +13,18 @@
 #define kKeyPressServiceUUIDString					@"ffe0"
 #define kKeyPressCharacteristicUUIDString			@"ffe1" // Key press data
 
-#define kTemperatureServiceUUDString				@"f000aa00-0451-4000 b000-000000000000"
-#define kTemperatureMonitorUUIDString				@"f000aa02-0451-4000 b000-000000000000" // Turn on the sensor
-#define kTemperatureCharacteristicUUIDString		@"f000aa01-0451-4000 b000-000000000000" // Temperature data
+#define kTemperatureServiceUUDString				@"f000aa00-0451-4000-b000-000000000000"
+#define kTemperatureMonitorUUIDString				@"f000aa02-0451-4000-b000-000000000000" // Turn on the sensor
+#define kTemperatureCharacteristicUUIDString		@"f000aa01-0451-4000-b000-000000000000" // Temperature data
 
-#define kHumidityServiceUUIDString					@"f000aa20-0451-4000 b000-000000000000"
-#define kHumidityMonitorUUIDString					@"f000aa22-0451-4000 b000-000000000000" // Turn on the sensor
-#define kHumidityCharacteristicUUIDString			@"f000aa21-0451-4000 b000-000000000000" // Humidity data
+#define kHumidityServiceUUIDString					@"f000aa20-0451-4000-b000-000000000000"
+#define kHumidityMonitorUUIDString					@"f000aa22-0451-4000-b000-000000000000" // Turn on the sensor
+#define kHumidityCharacteristicUUIDString			@"f000aa21-0451-4000-b000-000000000000" // Humidity data
 
-#define kBaromoterServiceUUIDString					@"f000aa40-0451-4000 b000-000000000000"
-#define kBaromoterMonitorUUIDString					@"f000aa42-0451-4000 b000-000000000000" // Configure the sensor
-#define kBarometerCharacteristicUUIDString			@"f000aa41-0451-4000 b000-000000000000" // Barometer data
-#define kBarometerCalibrationUUIDString				@"f000aa43-0451-4000 b000-000000000000" // Baraometer calibration data
+#define kBaromoterServiceUUIDString					@"f000aa40-0451-4000-b000-000000000000"
+#define kBaromoterMonitorUUIDString					@"f000aa42-0451-4000-b000-000000000000" // Configure the sensor
+#define kBarometerCharacteristicUUIDString			@"f000aa41-0451-4000-b000-000000000000" // Barometer data
+#define kBarometerCalibrationUUIDString				@"f000aa43-0451-4000-b000-000000000000" // Baraometer calibration data
 
 typedef enum SensorType
 {
