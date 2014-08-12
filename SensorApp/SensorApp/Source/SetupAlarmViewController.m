@@ -123,22 +123,22 @@
 					scaleAbbreviation = @"F";
 				}
 
-				row2.detailText = [NSString stringWithFormat:@"%dº %@", (NSUInteger) self.minStepper.value, scaleAbbreviation];
-				row3.detailText = [NSString stringWithFormat:@"%dº %@", (NSUInteger) self.maxStepper.value, scaleAbbreviation];
+				row2.detailText = [NSString stringWithFormat:@"%luº %@", (unsigned long)self.minStepper.value, scaleAbbreviation];
+				row3.detailText = [NSString stringWithFormat:@"%luº %@", (unsigned long)self.maxStepper.value, scaleAbbreviation];
 				break;
 			}
 				
 			case kSensorHumidityType:
 			{
-				row2.detailText = [NSString stringWithFormat:@"%d%% rH", (NSUInteger) self.minStepper.value];
-				row3.detailText = [NSString stringWithFormat:@"%d%% rH", (NSUInteger) self.maxStepper.value];
+				row2.detailText = [NSString stringWithFormat:@"%lu%% rH", (unsigned long) self.minStepper.value];
+				row3.detailText = [NSString stringWithFormat:@"%lu%% rH", (unsigned long) self.maxStepper.value];
 				break;
 			}
 
 			case kSensorPressureType:
 			{
-				row2.detailText = [NSString stringWithFormat:@"%d mbar", (NSUInteger) self.minStepper.value];
-				row3.detailText = [NSString stringWithFormat:@"%d mbar", (NSUInteger) self.maxStepper.value];
+				row2.detailText = [NSString stringWithFormat:@"%lu mbar", (unsigned long) self.minStepper.value];
+				row3.detailText = [NSString stringWithFormat:@"%lu mbar", (unsigned long) self.maxStepper.value];
 				break;
 			}
 		}

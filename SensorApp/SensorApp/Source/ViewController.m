@@ -106,7 +106,7 @@
 
 - (void) didChangeState:(CBCentralManagerState) newState
 {
-	DebugLog(@"state changed: %d", newState);
+	DebugLog(@"state changed: %ld", newState);
 
 	if (newState == CBCentralManagerStatePoweredOn)
 	{
@@ -231,7 +231,7 @@
 	// This should never return nil
 	SensorTableViewCell *cell = (SensorTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"SensorTableViewCell"];
 	cell.sensorTag = self.sensorTag;
-	cell.cellType = indexPath.row;
+	cell.cellType = (SensorType) indexPath.row;
 	cell.hasAlarm = [self alarmForSensorType:cell.cellType].alarmOn;
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	[cell setupCell];
@@ -262,7 +262,7 @@
 	NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 	
 	SetupAlarmViewController *vc = [[SetupAlarmViewController alloc] init];
-	vc.sensorType = indexPath.row;
+	vc.sensorType = (SensorType) indexPath.row;
 	vc.alarm = [self alarmForSensorType:vc.sensorType];
 	[self.navigationController pushViewController:vc animated:YES];
 }
@@ -333,14 +333,14 @@
 		if ([object highValueAlarm])
 		{
 			SensorTagAlarmAlert *alert = [[SensorTagAlarmAlert alloc] init];
-			alert.sensorType = object.sensorType;
+			alert.sensorType = (SensorType) object.sensorType;
 			alert.alarmValue = object.maxValue;
 			[alert presentAlarmAlert];
 		}
 		else if ([object lowValueAlarm])
 		{
 			SensorTagAlarmAlert *alert = [[SensorTagAlarmAlert alloc] init];
-			alert.sensorType = object.sensorType;
+			alert.sensorType = (SensorType) object.sensorType;
 			alert.below = YES;
 			alert.alarmValue = object.minValue;
 			[alert presentAlarmAlert];

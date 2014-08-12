@@ -83,7 +83,7 @@
 			label = NSLocalizedString(@"Pressure", nil);
 			if (self.sensorTag.hasPressure)
 			{
-				value = [NSString stringWithFormat:@"%d mbar", self.sensorTag.pressure];
+				value = [NSString stringWithFormat:@"%lu mbar", (unsigned long)self.sensorTag.pressure];
 			}
 			else
 			{

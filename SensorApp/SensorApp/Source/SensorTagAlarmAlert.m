@@ -58,7 +58,7 @@
 		}
 	}
 	
-	NSString *alertMessage = [NSString stringWithFormat:@"%@ is %@ %d%@", sensorString, self.below ? NSLocalizedString(@"below", nil) : NSLocalizedString(@"above", nil), self.alarmValue, sensorUnitsString];
+	NSString *alertMessage = [NSString stringWithFormat:@"%@ is %@ %lu%@", sensorString, self.below ? NSLocalizedString(@"below", nil) : NSLocalizedString(@"above", nil), (unsigned long)self.alarmValue, sensorUnitsString];
 
 	if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
 	{
