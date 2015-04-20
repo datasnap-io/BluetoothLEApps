@@ -63,16 +63,16 @@
 	// we MUST stop scanning before connecting
 
 	NSString *localName = [advertisementData objectForKey:CBAdvertisementDataLocalNameKey];
-	if (localName && [localName caseInsensitiveCompare:@"SensorTag"] == NSOrderedSame)
-	{
-		[[BluetoothLEManager sharedManager] stopScanning];
-		if (self.peripheral == nil)
-		{
-			self.peripheral = peripheral;
-			[self setupConnectButton];
-			[self.tableView reloadData];
-		}
-	}
+    
+	
+        NSLog(@"I see an advertisement with identifer: %@, state: %@, name: %@, services: %@, RSSI: %@, description: %@",
+              [peripheral identifier],
+              [peripheral state],
+              [peripheral name],
+              [peripheral services],
+              [peripheral RSSI],
+              [advertisementData description]);
+	
 }
 
 - (void) didConnectPeripheral:(CBPeripheral *) peripheral error:(NSError *)error
